@@ -1,59 +1,36 @@
-import { debounce } from "../shared/utils";
+import { SquareCanvas } from "../shared/canvas2d";
 
 const main = document.querySelector("main");
-const canvas = document.createElement("canvas");
-main.appendChild(canvas);
-
-let size = 0;
-let dpr = window.devicePixelRatio;
-
-const ctx = canvas.getContext("2d");
+const canvas = new SquareCanvas({});
 
 const draw = () => {
-	const dprSize = size * dpr;
+	const dprSize = canvas.size * canvas.dpr;
 
-	ctx.fillStyle = "rgb(35, 35, 39)";
-	ctx.fillRect(0, 0, dprSize, dprSize);
+	canvas.ctx.fillStyle = "rgb(35, 35, 39)";
+	canvas.ctx.fillRect(0, 0, dprSize, dprSize);
 
 	const cellCount = 100;
 	const cellSize = dprSize / cellCount;
 	const padding = cellSize / 2;
 
-	console.log(cellSize, padding);
-
 	for (let i = 0; i < dprSize; i += cellSize) {
 		for (let j = 0; j < dprSize; j += cellSize) {
-			ctx.beginPath();
+			canvas.ctx.beginPath();
 			const radius = (Math.random() * cellSize) / 2;
 			const x = i + padding;
 			const y = j + padding;
-			ctx.arc(x, y, radius, 0, Math.PI * 2);
+			canvas.ctx.arc(x, y, radius, 0, Math.PI * 2);
 
 			const alpha = Math.random().toFixed(3);
-			ctx.fillStyle = `rgba(255, 200, 150, ${alpha})`;
+			canvas.ctx.fillStyle = `rgba(255, 200, 150, ${alpha})`;
 
-			ctx.fill();
+			canvas.ctx.fill();
 		}
 	}
 };
 
-const resize = () => {
-	dpr = window.devicePixelRatio;
+canvas.draw = draw;
 
-	const min = Math.min(window.innerWidth, window.innerHeight);
+main.appendChild(canvas.elem);
 
-	size = min - 100;
-
-	canvas.width = size * dpr;
-	canvas.height = size * dpr;
-	canvas.style.width = `${size}px`;
-	canvas.style.height = `${size}px`;
-
-	draw();
-};
-
-resize();
-
-const debouncedResize = debounce(resize, 300);
-
-window.addEventListener("resize", debouncedResize, { passive: true });
+draw();
