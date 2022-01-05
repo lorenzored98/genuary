@@ -4,6 +4,7 @@ export class SquareCanvas {
 	elem;
 	ctx;
 	dpr;
+	cssSize;
 	size;
 	draw;
 	resizePadding;
@@ -12,7 +13,7 @@ export class SquareCanvas {
 		this.elem = document.createElement("canvas");
 		this.ctx = this.elem.getContext("2d");
 		this.dpr = window.devicePixelRatio;
-		this.size = 0;
+		this.cssSize = 0;
 		this.resizePadding = resizePadding;
 
 		this.resize();
@@ -30,12 +31,13 @@ export class SquareCanvas {
 
 		const min = Math.min(window.innerWidth, window.innerHeight);
 
-		this.size = min - this.resizePadding;
+		this.cssSize = min - this.resizePadding;
+		this.size = this.cssSize * this.dpr;
 
-		this.elem.width = this.size * this.dpr;
-		this.elem.height = this.size * this.dpr;
-		this.elem.style.width = `${this.size}px`;
-		this.elem.style.height = `${this.size}px`;
+		this.elem.width = this.size;
+		this.elem.height = this.size;
+		this.elem.style.width = `${this.cssSize}px`;
+		this.elem.style.height = `${this.cssSize}px`;
 
 		if (this.draw) {
 			this.draw();
