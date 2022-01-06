@@ -116,6 +116,8 @@ float pattern( in vec2 p ) {
     return ridgedMF( p +  0.416 * q ) + sin(uTime * 1.2) * 0.1;
 }
 
+// Inspired by: https://palmdrop.github.io/post/alien-patterns/
+
 void main () {
     vec2 uv = vUv * 3.0;
 
