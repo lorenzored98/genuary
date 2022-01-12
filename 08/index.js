@@ -1,16 +1,5 @@
 import { SquareCanvas } from "../shared/canvas2d";
 
-/**
- * Idea
- * fare una grid sempre con
- * dentro la random value
- * per ogni random value fare un piccolo stirograph basandomi su quel valore li come qualcosa
- * i piccoli stirprgaoh poi sembreranno delle shape a loro volta ma e' una sola curva per figura
- *
- * devo anche giocare con il blending per alcuni.
- *
- */
-
 const main = document.querySelector("main");
 const canvas = new SquareCanvas({});
 
