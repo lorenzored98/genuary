@@ -11,16 +11,17 @@ const draw = () => {
 	ctx.fillRect(0, 0, size, size);
 
 	const cellCount = 100;
-	const cellSize = size / cellCount;
-	const padding = cellSize / 2;
+	const padding = size / 15;
+	const cellSize = (size - padding * 2) / cellCount;
 
-	for (let i = 0; i < size; i += cellSize) {
-		for (let j = 0; j < size; j += cellSize) {
+	const padE = 1;
+
+	for (let x = padding; x < size - padding - padE; x += cellSize) {
+		for (let y = padding; y < size - padding - padE; y += cellSize) {
 			ctx.beginPath();
 			const radius = (Math.random() * cellSize) / 2;
-			const x = i + padding;
-			const y = j + padding;
-			ctx.arc(x, y, radius, 0, Math.PI * 2);
+
+			ctx.arc(x + cellSize / 2, y + cellSize / 2, radius, 0, Math.PI * 2);
 
 			const alpha = Math.random().toFixed(3);
 			ctx.fillStyle = `rgba(255, 200, 150, ${alpha})`;
