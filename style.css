@@ -40,11 +40,21 @@ ol {
 	padding: 4rem;
 }
 
-a {
+li {
 	color: rgb(35, 35, 39);
+}
+
+a {
 	cursor: pointer;
+	color: inherit;
 }
 
 a:hover {
 	color: rgb(77, 37, 255);
+}
+
+.disabled {
+	pointer-events: none;
+	touch-action: none;
+	color: rgba(35, 35, 39, 0.7);
 }
