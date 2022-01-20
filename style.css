@@ -24,6 +24,11 @@ main {
 	align-items: center;
 }
 
+.scene {
+	width: 100%;
+	height: 100%;
+}
+
 canvas {
 	display: block;
 }
