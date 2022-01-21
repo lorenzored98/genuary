@@ -83,9 +83,9 @@ function createMesh() {
 
 	const material = sourceMaterial.clone();
 
-	// const color = new THREE.Color("rgb(255, 196, 0)");
+	const color = new THREE.Color("rgb(255, 196, 0)");
 	// const color = new THREE.Color("rgb(255, 221, 107)");
-	const color = new THREE.Color("rgb(33, 33, 33)");
+	// const color = new THREE.Color("rgb(33, 33, 33)");
 
 	material.uniforms.uColor = { value: color };
 
