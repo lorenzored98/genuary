@@ -80,7 +80,7 @@ void main() {
 
   vec3 color = mix(vec3(value), uColor, 0.5);
   // color = pow(color, vec3(0.5));
-  color = pow(color, vec3(2.0));
+  // color = pow(color, vec3(2.0));
 
   gl_FragColor = vec4(color, 1.0);
 }
