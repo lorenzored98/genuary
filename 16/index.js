@@ -1,7 +1,7 @@
 import { SquareCanvas } from "../shared/canvas2d";
 
 const main = document.querySelector("main");
-const canvas = new SquareCanvas({});
+const canvas = new SquareCanvas({ debounceResize: 0 });
 
 const random = (x, y, seed) => {
 	const dot = x * 12.9898 + y * 78.233 + seed;
@@ -36,10 +36,10 @@ const draw = () => {
 	const colorStep = 255 / cellCount;
 
 	const calcCellColor = (cell) => {
-		const row = ((cell.y - padding) / cellSize) * cellCount;
-		const col = (cell.x - padding) / cellSize;
+		const row = Math.round(((cell.y - padding) / cellSize) * cellCount);
+		const col = Math.round((cell.x - padding) / cellSize);
 
-		const index = Math.round(row + col);
+		const index = row + col;
 		const maxCol = cellCount - 1;
 		const maxRow = maxCol * cellCount;
 
