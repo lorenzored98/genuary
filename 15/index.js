@@ -45,12 +45,8 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(size.width, size.height);
 renderer.setViewport(0, 0, size.width, size.height);
 
-const clock = new THREE.Clock();
-
 //
 function draw() {
-	const elapsedTime = clock.getElapsedTime();
-
 	renderer.render(scene, camera);
 	window.requestAnimationFrame(draw);
 }
