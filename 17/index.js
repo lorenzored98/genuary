@@ -21,10 +21,6 @@ const rand = (min, max) => {
 	return Math.floor(min + (rand / 6) * (max - min));
 };
 
-const lerp = (v0, v1, t) => {
-	return v0 * (1 - t) + v1 * t;
-};
-
 const getSimilar = (p1, p2) => {
 	return Math.abs(p1 - p2);
 };
