@@ -62,3 +62,9 @@ a:hover {
 	touch-action: none;
 	color: rgba(35, 35, 39, 0.7);
 }
+
+@media only screen and (max-width: 760px) {
+	ol {
+		font-size: 2rem;
+	}
+}
