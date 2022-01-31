@@ -1,7 +1,7 @@
 import { SquareCanvas } from "../shared/canvas2d";
 
 const main = document.querySelector("main");
-const canvas = new SquareCanvas({ debounceResize: 0 });
+const canvas = new SquareCanvas({});
 
 const dist = (x1, y1, x2, y2) => {
 	const a = x1 - x2;
@@ -76,7 +76,7 @@ const draw = () => {
 
 		ctx.globalCompositeOperation = "overlay";
 
-		for (let k = 0; k < 20; k++) {
+		for (let k = 0; k < 15; k++) {
 			for (let i = 0; i < 100; i++) {
 				const x = x1 + (width / 100) * i;
 				const y = y1 + (height / 100) * i;
@@ -100,8 +100,9 @@ const draw = () => {
 
 					v *= Math.random(0, d / maxD);
 
-					const rx = 100 * s * v;
-					const ry = 100 * c * v;
+					const baseR = Math.min(width, height) * 0.35;
+					const rx = baseR * s * v;
+					const ry = baseR * c * v;
 
 					createCircle(x, y, rx, ry, reverse);
 
