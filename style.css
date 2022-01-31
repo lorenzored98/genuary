@@ -41,8 +41,8 @@ ol {
 	display: flex;
 	flex-direction: column;
 	font-size: 3.2rem;
-	padding: 2rem;
-	list-style-position: inside;
+	padding: 2rem 2rem 2rem 0;
+	margin-left: 6rem;
 }
 
 li {
