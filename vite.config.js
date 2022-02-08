@@ -33,6 +33,7 @@ module.exports = defineConfig({
 				25: resolve(__dirname, "25/index.html"),
 				26: resolve(__dirname, "26/index.html"),
 				27: resolve(__dirname, "27/index.html"),
+				29: resolve(__dirname, "29/index.html"),
 			},
 		},
 	},
